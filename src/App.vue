@@ -1,12 +1,55 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <vTable :users_data="USERS" />
+    <popupAdd @new-row="newRow" />
+    <popupEdit @edited-row="editedRow" />
   </div>
 </template>
+
+<script>
+import { mapActions, mapGetters } from "vuex";
+import vTable from "./components/table/v-table";
+import popupAdd from "./components/popup/popup-add";
+import popupEdit from "./components/popup/popup-edit";
+
+export default {
+  name: "app",
+  components: { vTable, popupAdd, popupEdit },
+  data: () => {
+    return {};
+  },
+  methods: {
+    ...mapActions(["GET_USERS_FROM_API"]),
+    newRow(data) {
+      data.id =
+        data.points_earned +
+        data.points_spent +
+        Math.floor(Math.random() * 1000) +
+        1;
+      this.USERS.unshift(data);
+      document.querySelector(".popup-add").style.display = "none";
+      document.forms.add.reset();
+    },
+    editedRow() {
+      const formEdit = document.forms.edit;
+      const row = this.USERS.find(
+        (item) => item.id == formEdit.elements.id.value
+      );
+      row.name = formEdit.elements.name.value;
+      row.points_earned = formEdit.elements.points_earned.value;
+      row.points_spent = formEdit.elements.points_spent.value;
+      row.registration_date = formEdit.elements.date.value;
+      popupEdit.methods.close();
+    },
+  },
+  computed: {
+    ...mapGetters(["USERS"]),
+  },
+  mounted() {
+    this.GET_USERS_FROM_API();
+  },
+};
+</script>
 
 <style>
 #app {
