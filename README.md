@@ -1,5 +1,10 @@
 # table-auth
 
+## Project Demo
+```
+https://timesnewrouman.github.io/table-auth
+```
+
 ## Project setup
 ```
 npm install
@@ -13,6 +18,11 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
+```
+
+### Deploy script
+```
+deploy.sh
 ```
 
 ### Customize configuration
