@@ -1,9 +1,6 @@
-# table-auth
-
-## Project Demo
-```
-https://timesnewrouman.github.io/table-auth
-```
+# TableAuth
+###### Версия 1.1
+#### Демо https://timesnewrouman.github.io/table-auth
 
 ## Project setup
 ```
@@ -24,6 +21,3 @@ npm run build
 ```
 deploy.sh
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
