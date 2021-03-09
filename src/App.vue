@@ -11,7 +11,6 @@ import { mapActions, mapGetters } from "vuex";
 import vTable from "./components/table/v-table";
 import popupAdd from "./components/popup/popup-add";
 import popupEdit from "./components/popup/popup-edit";
-
 export default {
   name: "app",
   components: { vTable, popupAdd, popupEdit },
