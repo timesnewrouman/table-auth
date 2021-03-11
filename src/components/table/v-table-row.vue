@@ -3,7 +3,7 @@
     <div class="row row-name">{{ row_data.name }}</div>
     <div class="row row-earned">{{ row_data.points_earned }}</div>
     <div class="row row-spent">{{ row_data.points_spent }}</div>
-    <div class="row row-date">{{ row_data.registration_date.substring(0, 10) }}</div>
+    <div class="row row-date">{{ row_data.registration_date }}</div>
     <button
       class="row-edit"
       @click="$emit('edit-row', row_data)"

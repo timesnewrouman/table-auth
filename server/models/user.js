@@ -13,10 +13,6 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  registration_date: {
-    type: Date,
-    required: true,
-  },
 });
 
 module.exports = mongoose.model('user', userSchema);
