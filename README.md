@@ -16,6 +16,15 @@ npm run serve
 ```
 npm run build
 ```
+### Launches server part
+```
+npm run node
+```
+
+### Launches both front and server parts
+```
+npm run main
+```
 
 ### Deploy script
 ```
