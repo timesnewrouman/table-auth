@@ -4,7 +4,7 @@
       <img
         @click="close"
         class="popup-edit__close"
-        src="../../assets/close.svg"
+        src="../../images/close.svg"
         alt="Иконка выхода"
       />
       <h3 class="popup-edit__header">Изменение строки</h3>

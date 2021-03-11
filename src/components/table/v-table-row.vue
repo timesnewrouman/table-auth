@@ -3,7 +3,7 @@
     <div class="row row-name">{{ row_data.name }}</div>
     <div class="row row-earned">{{ row_data.points_earned }}</div>
     <div class="row row-spent">{{ row_data.points_spent }}</div>
-    <div class="row row-date">{{ row_data.registration_date }}</div>
+    <div class="row row-date">{{ row_data.registration_date.substring(0, 10) }}</div>
     <button
       class="row-edit"
       @click="$emit('edit-row', row_data)"
@@ -47,7 +47,7 @@ export default {
 }
 
 .row-edit {
-  background-image: url(../../assets/edit.png);
+  background-image: url(../../images/edit.png);
   background-color: white;
   width: 24px;
   height: 24px;
@@ -58,7 +58,7 @@ export default {
 }
 
 .row-delete {
-  background-image: url(../../assets/delete-icon.png);
+  background-image: url(../../images/delete.png);
   background-color: white;
   width: 24px;
   height: 24px;

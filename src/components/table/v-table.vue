@@ -3,19 +3,19 @@
     <div class="v-table__header">
       <p @click="sortByName">
         Name
-        <img src="../../assets/unfold_more.png" alt="Значок сортировки" />
+        <img src="../../images/unfold_more.png" alt="Значок сортировки" />
       </p>
       <p @click="sortByPointsEarned">
         Points Earned
-        <img src="../../assets/unfold_more.png" alt="Значок сортировки" />
+        <img src="../../images/unfold_more.png" alt="Значок сортировки" />
       </p>
       <p @click="sortByPointsSpent">
         Points Spent
-        <img src="../../assets/unfold_more.png" alt="Значок сортировки" />
+        <img src="../../images/unfold_more.png" alt="Значок сортировки" />
       </p>
       <p @click="sortByDate">
         Registration date
-        <img src="../../assets/unfold_more.png" alt="Значок сортировки" />
+        <img src="../../images/unfold_more.png" alt="Значок сортировки" />
       </p>
       <button @click="showAddPopup" class="button-add"></button>
     </div>
@@ -155,7 +155,7 @@ export default {
   color: #fff;
 }
 .button-add {
-  background-image: url(../../assets/add.png);
+  background-image: url(../../images/add.png);
   background-color: white;
   width: 36px;
   height: 36px;

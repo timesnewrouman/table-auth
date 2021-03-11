@@ -1,5 +1,5 @@
 # TableAuth
-###### Версия 1.1
+###### Версия 1.2
 #### Демо https://timesnewrouman.github.io/table-auth
 
 ## Project setup
