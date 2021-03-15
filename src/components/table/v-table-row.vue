@@ -4,10 +4,7 @@
     <div class="row row-earned">{{ row_data.points_earned }}</div>
     <div class="row row-spent">{{ row_data.points_spent }}</div>
     <div class="row row-date">{{ row_data.registration_date }}</div>
-    <button
-      class="row-edit"
-      @click="$emit('edit-row', row_data)"
-    ></button>
+    <button class="row-edit" @click="$emit('edit-row', row_data)"></button>
     <button
       class="row-delete"
       @click="$emit('remove-row', row_data.id)"

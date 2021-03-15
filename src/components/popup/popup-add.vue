@@ -1,5 +1,5 @@
 <template>
-  <div class="popup-add">
+  <div ref="popupAdd" class="popup-add">
     <div class="popup-add__content">
       <img
         @click="close"
@@ -8,7 +8,12 @@
         alt="Иконка выхода"
       />
       <h3 class="popup-add__header">Добавление строки</h3>
-      <form class="popup-add__form" name="add" @submit.prevent="submit">
+      <form
+        class="popup-add__form"
+        ref="formAdd"
+        name="add"
+        @submit.prevent="submit"
+      >
         <input type="text" name="name" placeholder="Name" required />
         <input
           type="number"
@@ -37,15 +42,12 @@ export default {
   },
   computed: {},
   methods: {
-    open() {
-      document.querySelector(".popup-add").style.display = "flex";
-    },
     close() {
-      document.querySelector(".popup-add").style.display = "none";
-      document.forms.add.reset();
+      this.$refs.popupAdd.style.display = "none";
+      this.$refs.formAdd.reset();
     },
     submit() {
-      const formAdd = document.forms.add;
+      const formAdd = this.$refs.formAdd;
       const newRow = {
         name: formAdd.elements.name.value,
         points_earned: formAdd.elements.points_earned.value,

@@ -1,5 +1,5 @@
 <template>
-  <div class="popup-edit">
+  <div ref="popupEdit" class="popup-edit">
     <div class="popup-edit__content">
       <img
         @click="close"
@@ -8,7 +8,12 @@
         alt="Иконка выхода"
       />
       <h3 class="popup-edit__header">Изменение строки</h3>
-      <form class="popup-edit__form" name="edit" @submit.prevent="submit">
+      <form
+        class="popup-edit__form"
+        ref="formEdit"
+        name="edit"
+        @submit.prevent="submit"
+      >
         <input type="text" name="name" placeholder="Name" required />
         <input
           type="number"
@@ -38,15 +43,12 @@ export default {
   },
   computed: {},
   methods: {
-    open() {
-      document.querySelector(".popup-edit").style.display = "flex";
-    },
     close() {
-      document.querySelector(".popup-edit").style.display = "none";
-      document.forms.edit.reset();
+      this.$refs.popupEdit.style.display = "none";
+      this.$refs.formEdit.reset();
     },
     submit() {
-      const formEdit = document.forms.edit;
+      const formEdit = this.$refs.formEdit;
       const editedRow = {
         name: formEdit.elements.name.value,
         points_earned: formEdit.elements.points_earned.value,

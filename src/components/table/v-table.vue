@@ -1,5 +1,5 @@
 <template>
-  <div class="v-table">
+  <div class="v-table" ref="xxx">
     <div class="v-table__header">
       <p @click="sortByName">
         Name
@@ -44,8 +44,6 @@
 
 <script>
 import vTableRow from "./v-table-row";
-import popupAdd from "../popup/popup-add";
-import popupEdit from "../popup/popup-edit";
 
 export default {
   name: "v-table",
@@ -98,16 +96,16 @@ export default {
       this.users_data = this.users_data.filter((x) => x.id !== id);
     },
     editRow(data) {
-      const formEdit = document.forms.edit;
+      const formEdit = this.$parent.$children[2].$refs.formEdit;
       formEdit.elements.id.value = data.id;
       formEdit.elements.name.value = data.name;
       formEdit.elements.points_earned.value = data.points_earned;
       formEdit.elements.points_spent.value = data.points_spent;
       formEdit.elements.date.value = data.registration_date;
-      popupEdit.methods.open();
+      this.$parent.$children[2].$refs.popupEdit.style.display = "flex";
     },
     showAddPopup() {
-      popupAdd.methods.open();
+      this.$parent.$children[1].$refs.popupAdd.style.display = "flex";
     },
   },
 };

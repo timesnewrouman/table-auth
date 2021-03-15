@@ -11,6 +11,7 @@ import { mapActions, mapGetters } from "vuex";
 import vTable from "./components/table/v-table";
 import popupAdd from "./components/popup/popup-add";
 import popupEdit from "./components/popup/popup-edit";
+
 export default {
   name: "app",
   components: { vTable, popupAdd, popupEdit },
@@ -26,11 +27,11 @@ export default {
         Math.floor(Math.random() * 1000) +
         1;
       this.USERS.unshift(data);
-      document.querySelector(".popup-add").style.display = "none";
-      document.forms.add.reset();
+      this.$children[1].$refs.popupAdd.style.display = "none";
+      this.$children[1].$refs.formAdd.reset();
     },
     editedRow() {
-      const formEdit = document.forms.edit;
+      const formEdit = this.$children[2].$refs.formEdit;
       const row = this.USERS.find(
         (item) => item.id == formEdit.elements.id.value
       );
@@ -38,7 +39,8 @@ export default {
       row.points_earned = formEdit.elements.points_earned.value;
       row.points_spent = formEdit.elements.points_spent.value;
       row.registration_date = formEdit.elements.date.value;
-      popupEdit.methods.close();
+      this.$children[2].$refs.popupEdit.style.display = "none";
+      this.$children[2].$refs.formEdit.reset();
     },
   },
   computed: {
