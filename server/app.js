@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const { PORT, DATABASE_URL } = require('./config');
 
 const allowedList = [
@@ -28,8 +29,15 @@ mongoose.connect(DATABASE_URL, {
 
 const app = express();
 app.use(cors(corsOptions));
+app.use(bodyParser.json());
 app.use('/', require('./router'));
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`)
-})
+});
+
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = statusCode === 500 ? 'Произошла ошибка' : err.message;
+  res.status(statusCode).send({ message });
+});

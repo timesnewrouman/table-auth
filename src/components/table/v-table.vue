@@ -51,7 +51,7 @@ export default {
     vTableRow,
   },
   props: {
-    users_data: {
+    students_data: {
       type: Array,
       default: () => {
         return [];
@@ -66,12 +66,12 @@ export default {
   },
   computed: {
     pages() {
-      return Math.ceil(this.users_data.length / this.usersPerPage);
+      return Math.ceil(this.students_data.length / this.usersPerPage);
     },
     paginatedUsers() {
       let from = (this.pageNumber - 1) * this.usersPerPage;
       let to = from + this.usersPerPage;
-      return this.users_data.slice(from, to);
+      return this.students_data.slice(from, to);
     },
   },
   methods: {
@@ -79,21 +79,21 @@ export default {
       this.pageNumber = page;
     },
     sortByName() {
-      this.users_data.sort((a, b) => a.name.localeCompare(b.name));
+      this.students_data.sort((a, b) => a.name.localeCompare(b.name));
     },
     sortByPointsEarned() {
-      this.users_data.sort((a, b) => a.points_earned - b.points_earned);
+      this.students_data.sort((a, b) => a.points_earned - b.points_earned);
     },
     sortByPointsSpent() {
-      this.users_data.sort((a, b) => a.points_spent - b.points_spent);
+      this.students_data.sort((a, b) => a.points_spent - b.points_spent);
     },
     sortByDate() {
-      this.users_data.sort((a, b) =>
+      this.students_data.sort((a, b) =>
         a.registration_date.localeCompare(b.registration_date)
       );
     },
     removeRow(id) {
-      this.users_data = this.users_data.filter((x) => x.id !== id);
+      this.students_data = this.students_data.filter((x) => x.id !== id);
     },
     editRow(data) {
       const formEdit = this.$parent.$children[2].$refs.formEdit;
