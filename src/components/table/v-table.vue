@@ -1,5 +1,5 @@
 <template>
-  <div class="v-table" ref="xxx">
+  <div class="v-table">
     <div class="v-table__header">
       <p @click="sortByName">
         Name
